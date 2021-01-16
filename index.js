@@ -1,5 +1,6 @@
 var listeJoueur = [];
-
+var listeMembre = ["Mains", "Pied"];
+var listeCouleur = ["Vert","Jaune" ,"Bleu", "Rouge"]
 
 function ajoutjoueur(){
 	var lejoueur = document.getElementById("nomJoueur").value;
@@ -21,7 +22,7 @@ function ajouterListe(nom){
 	const listeElem = document.getElementById("listeDesJoueur")
 
 	const element = document.createElement("li");
-	const nouveaujoueur = document.createElement("h2");
+	const nouveaujoueur = document.createElement("h1");
 	var valeurs = document.createTextNode(nom);
 	nouveaujoueur.setAttribute("class", "nomDeJoueur")
 	nouveaujoueur.appendChild(valeurs);

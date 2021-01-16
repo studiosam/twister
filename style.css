@@ -44,5 +44,11 @@ button {
 	border-radius: 12px;
 }
 .nomDeJoueur {
-	font-size: 20px;
+	font-size: 35px;
+}
+#menu {
+	height: 12%;
+	position: sticky;
+	bottom: 0px;
+	background-color: #4CAF50;
 }
