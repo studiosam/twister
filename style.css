@@ -44,7 +44,15 @@ button {
 	border-radius: 12px;
 }
 .nomDeJoueur {
-	font-size: 35px;
+	font-size: 90px;
+	height: 20%;
+	border-top-style: solid;
+	border-bottom-style: hidden; 
+	padding: 3% 0% 3% 0%;
+}
+#listeDesJoueur{
+	list-style-type: none;
+	padding: 0px;
 }
 #menu {
 	height: 15%;
@@ -65,4 +73,8 @@ select {
 	text-decoration: none;
 
 	margin: 5% 5% 5% 5%;
+}
+h1 {
+	font-size: 100px;
+	text-align: center;
 }
