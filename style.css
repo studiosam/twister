@@ -47,8 +47,22 @@ button {
 	font-size: 35px;
 }
 #menu {
-	height: 12%;
+	height: 15%;
 	position: sticky;
 	bottom: 0px;
-	background-color: #4CAF50;
+	background-color: #8B8C9D;
+}
+select {
+	background-color: #4CAF50; /* grey */
+	border: none;
+	text-align: center;
+	width: 55%;
+	height: 65%;
+	border-radius: 12px;
+	padding: 0% 0%;
+	font-size: 40px;
+	display: inline-block;
+	text-decoration: none;
+	color: white;
+	margin: 5% 5% 5% 5%;
 }
