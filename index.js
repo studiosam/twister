@@ -30,6 +30,43 @@ function ajouterListe(nom){
 	listeElem.appendChild(element);
 
 }
+function choixTemps(choix){
+	var temps = 0;
+	switch (choix) {
+		case 0:
+			temps = 0;
+			break;
+		case 1:
+			temps = 5;
+			break;
+		case 2:
+			temps = 10;
+			break;
+		case 3:
+			temps = 15;
+			break;
+		case 4:
+			temps = 20;
+			break;
+		case 5:
+			temps = 30;
+			break;
+		case 6:
+			temps = 45;
+			break;
+		case 7:
+			temps = 60;
+			break;
+		case 8:
+
+			temps = prompt("Quels temps voulez-vous ? (en seconde)", "0");
+			break;
+		default :
+			temps = 0;
+			break;
+	}
+	console.log(temps);
+}
 
 
 

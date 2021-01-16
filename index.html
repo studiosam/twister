@@ -16,8 +16,8 @@
 	-->
 	<div class="menu" id="information">
 
-			<input type="text" id="nomJoueur" placeholder="Rentrer le nom des joueurs">
-			<button id="ajouter" onclick="ajoutjoueur()">Ajouter</button>
+			<input type="text" id="nomJoueur" placeholder="Rentrer le nom des joueurs" name="fname">
+			<button id="ajouter" onclick="ajoutjoueur()" >Ajouter</button>
 
 	</div>
 	<!--
@@ -46,7 +46,7 @@
 	</div>
 
 	<div class="menu" id="menu">
-		<select>
+		<select onchange="choixTemps(this.selectedIndex)">
 			<option value="manuelle">Mode manuelle</option>
 			<option value="5">5 seconde</option>
 			<option value="10">10 seconde</option>
