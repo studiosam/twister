@@ -12,7 +12,7 @@ function ajoutjoueur(){
 function unique(joueur){
 	console.log(listeJoueur.indexOf(joueur));
 	if (listeJoueur.indexOf(joueur) != -1) {
-		alert("Ce joueur a deja ete ajouter")
+		alert("Le joueur : "+joueur+" a deja ete ajouter")
 	}else {
 		listeJoueur.push(joueur);
 		ajouterListe(joueur);
@@ -24,7 +24,7 @@ function ajouterListe(nom){
 	const element = document.createElement("li");
 	const nouveaujoueur = document.createElement("h1");
 	var valeurs = document.createTextNode(nom);
-	nouveaujoueur.setAttribute("class", "nomDeJoueur")
+	nouveaujoueur.setAttribute("class", "nomDeJoueur");
 	nouveaujoueur.appendChild(valeurs);
 	element.appendChild(nouveaujoueur);
 	listeElem.appendChild(element);
@@ -35,21 +35,21 @@ function ajouterTemps (valeur) {
 
 	const nouveauTemps = document.createElement("option")
 
-	var temps = document.createTextNode(valeur);
+	var temps = document.createTextNode(valeur+" seconde");
+	nouveauTemps.setAttribute("value", valeur);
 	nouveauTemps.appendChild(temps);
 	
-
 	listeElem.parentNode.insertBefore(nouveauTemps, listeElem);
+	nouveauTemps.selected = true;
 }
 
 function choixTemps(choix){
 	var temps = 0;
-	console.log(choix);
 	if (isNaN(parseInt(choix))) {
 		if (choix=="custom") {
-			//do{
+			do{
 				temps = parseInt(prompt("Quels temps voulez-vous ? (en seconde)", "0"));
-			//}while (isNaN(temps));
+			}while (isNaN(temps));
 			ajouterTemps(temps);
 		}else {
 			temps=0
