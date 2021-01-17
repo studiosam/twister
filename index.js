@@ -69,6 +69,33 @@ function choixTemps(choix){
 	console.log(temps);
 }
 
+function pageAjustement() {
+	document.getElementById("information").remove();
+	//console.log(element);
+	//element.style.visibility = "hidden";
+	var couleur = document.getElementById("couleur");
+	couleur.style.visibility = "visible";
+	var parti = document.getElementById("parti");
+	parti.style.visibility = "visible";
+}
+function nombreAleatoir (min, max) {
+	var alea = min + Math.floor(Math.random()*(max-min));
+	return alea;
+}
+function couleurAleatoir () {
+	var couleur = listeCouleur[nombreAleatoir(0,listeCouleur.length)];
+	console.log(couleur)
+}
+function partiAleatoir () {
+	var parti = listeMembre[nombreAleatoir(0,listeMembre.length)];
+	console.log(parti);
+}
 
 
-console.log('hey');
+
+function startgame() {
+	if (document.getElementById("information")) {
+		pageAjustement();
+	}
+
+}
