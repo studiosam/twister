@@ -129,6 +129,9 @@ function gettime () {
 	var temps = 0;
 	var element = document.getElementById("listetemps");
 	temps = element.value*1000;
+	if (element.value = custom) {
+		temps=0;
+	}
 	return temps;
 }
 
