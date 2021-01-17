@@ -30,9 +30,35 @@ function ajouterListe(nom){
 	listeElem.appendChild(element);
 
 }
+function ajouterTemps (valeur) {
+	const listeElem = document.getElementById("custom");
+
+	const nouveauTemps = document.createElement("option")
+
+	var temps = document.createTextNode(valeur);
+	nouveauTemps.appendChild(temps);
+	
+
+	listeElem.parentNode.insertBefore(nouveauTemps, listeElem);
+}
+
 function choixTemps(choix){
 	var temps = 0;
-	switch (choix) {
+	console.log(choix);
+	if (isNaN(parseInt(choix))) {
+		if (choix=="custom") {
+			//do{
+				temps = parseInt(prompt("Quels temps voulez-vous ? (en seconde)", "0"));
+			//}while (isNaN(temps));
+			ajouterTemps(temps);
+		}else {
+			temps=0
+		}
+	}else {
+		temps=choix;
+	}
+
+	/*switch (choix) {
 		case 0:
 			temps = 0;
 			break;
@@ -58,13 +84,16 @@ function choixTemps(choix){
 			temps = 60;
 			break;
 		case 8:
-
-			temps = prompt("Quels temps voulez-vous ? (en seconde)", "0");
+			do{
+				temps = parseInt(prompt("Quels temps voulez-vous ? (en seconde)", "0"));
+			}while (isNaN(temps));
+			ajouterTemps(temps);
 			break;
 		default :
 			temps = 0;
 			break;
 	}
+	*/
 	console.log(temps);
 }
 

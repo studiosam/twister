@@ -46,7 +46,7 @@
 	</div>
 
 	<div class="menu" id="menu">
-		<select onchange="choixTemps(this.selectedIndex)">
+		<select id="listetemps" onchange="choixTemps(this.value)">
 			<option value="manuelle">Mode manuelle</option>
 			<option value="5">5 seconde</option>
 			<option value="10">10 seconde</option>
@@ -55,7 +55,7 @@
 			<option value="30">30 seconde</option>
 			<option value="45">45 seconde</option>
 			<option value="60">1 minute</option>
-			<option value="custom">Autre temps</option>
+			<option value="custom" id="custom">Autre temps</option>
 		</select>
 		<button id="start" onclick="">Start</button>
 	</div>
