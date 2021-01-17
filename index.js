@@ -1,6 +1,10 @@
-var listeJoueur = [];
+var listeJoueur = ["louis", "patrice"];
 var listeMembre = ["Mains", "Pied"];
 var listeCouleur = ["Vert","Jaune" ,"Bleu", "Rouge"]
+
+var elementCreation= creationAjoutJoueur();
+var elementList = creationListJoueur();
+var plageJeux = creationPlageJeux();
 
 function ajoutParRetours (touche) {
 	if (event.key === "Enter") {
@@ -83,16 +87,16 @@ function couleurAleatoir () {
 	var element = document.getElementById("couleur");
 	switch (couleur) {
 		case "Vert":
-			element.style.backgroundColor = 'green';
+			plageJeux.style.backgroundColor = 'green';
 			break;
 		case "Jaune":
-			element.style.backgroundColor = 'yellow';
+			plageJeux.style.backgroundColor = 'yellow';
 			break;
 		case "Bleu":
-			element.style.backgroundColor = 'blue';
+			plageJeux.style.backgroundColor = 'blue';
 			break;
 		case "Rouge":
-			element.style.backgroundColor = 'red';
+			plageJeux.style.backgroundColor = 'red';
 			break;
 	}
 }
@@ -153,7 +157,8 @@ function deroulementParti (tours) {
 
 
 function pausegame () {
-	buttonPauseToStart()
+	buttonPauseToStart();
+	
 }
 
 var tours = 0;
@@ -196,7 +201,7 @@ function pageAjustement() {
 
 	elementCreation.remove();
 	elementList.remove();
-	page.appendChild(plagejeux);
+	page.appendChild(plageJeux);
 
 }
 /////////////////////////////////////////////////////////////////////////////
@@ -256,14 +261,11 @@ function creationPlageJeux() {
 	return div;
 }
 
-var elementCreation;
-var elementList
-var plageJeux
+
+
+
 function pageJoueur () {
-	var page = document.getElementById('body');
-	elementCreation = creationAjoutJoueur();
-	elementList = creationListJoueur();
-	plagejeux = creationPlageJeux();
+	var page = document.getElementById('body');	
 
 	page.appendChild(elementCreation);
 	page.appendChild(elementList);
