@@ -71,6 +71,7 @@ function choixTemps(choix){
 
 function pageAjustement() {
 	document.getElementById("information").remove();
+	document.getElementById("listeDesJoueur").remove();
 	//console.log(element);
 	//element.style.visibility = "hidden";
 	var couleur = document.getElementById("couleur");
@@ -113,13 +114,55 @@ function partiAleatoir () {
 	}
 	
 }
+function toursJoueur (tours) {
+	var joueur = listeJoueur[tours%listeJoueur.length];
+	return joueur;
+}
 
+function afficherLeJoueur (tours) {
+	var nom = toursJoueur(tours);
+	var element = document.getElementById("joueurs");
+	element.innerHTML = nom;
+}
 
+function gettime () {
+	var temps = 0;
+	var element = document.getElementById("listetemps");
+	temps = element.value*1000;
+	return temps;
+}
 
-function startgame() {
-	if (document.getElementById("information")) {
-		pageAjustement();
-	}
+function buttonStartToStop () {
+	var playPause = document.getElementById("start");
+	playPause.style.backgroundColor = '#d84949';
+	playPause.innerHTML = "Pause";
+	playPause.value = "pause";
+}
+function deroulementParti (tours) {
 	couleurAleatoir();
 	partiAleatoir();
+	afficherLeJoueur(tours); 
+}
+
+
+var tours = 0;
+function startgame() {
+	if (listeJoueur.length >= 2) {
+		if (document.getElementById("information")) {
+			pageAjustement();
+		}
+		var interval = gettime();
+		tours++;
+
+		deroulementParti(tours);
+		if (interval != 0) {
+			buttonStartToStop();
+			setInterval(function(){
+				tours++;
+				deroulementParti(tours);
+			}, interval);
+		}	
+	}else {
+		alert("Il te faut au moins deux joueurs !!");
+	}
 }
