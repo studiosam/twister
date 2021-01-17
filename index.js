@@ -84,11 +84,34 @@ function nombreAleatoir (min, max) {
 }
 function couleurAleatoir () {
 	var couleur = listeCouleur[nombreAleatoir(0,listeCouleur.length)];
-	console.log(couleur)
+	var element = document.getElementById("couleur");
+	switch (couleur) {
+		case "Vert":
+			element.style.backgroundColor = 'green';
+			break;
+		case "Jaune":
+			element.style.backgroundColor = 'yellow';
+			break;
+		case "Bleu":
+			element.style.backgroundColor = 'blue';
+			break;
+		case "Rouge":
+			element.style.backgroundColor = 'red';
+			break;
+	}
 }
 function partiAleatoir () {
 	var parti = listeMembre[nombreAleatoir(0,listeMembre.length)];
-	console.log(parti);
+	var element = document.getElementById("afficherParti");
+	switch (parti) {
+		case "Mains":
+			element.innerText  = "Mains";
+			break;
+		case "Pied":
+			element.innerText = "Pied";
+			break;
+	}
+	
 }
 
 
@@ -97,5 +120,6 @@ function startgame() {
 	if (document.getElementById("information")) {
 		pageAjustement();
 	}
-
+	couleurAleatoir();
+	partiAleatoir();
 }
