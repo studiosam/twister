@@ -7,42 +7,52 @@
 	<link rel="stylesheet" href="style.css">
 
 </head>
-<body>
+<body id="body">
+	<div id="page">
+		
 
+	</div>
 
 
 	<!--
 	entrer le nom des joueurs
 	-->
+
+	<!--
 	<div class="menu" id="information">
 
 			<input type="text" id="nomJoueur" placeholder="Rentrer le prenon des joueurs" name="fname" onkeypress="ajoutParRetours(event)">
 			<button id="ajouter" onclick="ajoutjoueur()" >Ajouter</button>
 
 	</div>
-	<!--
+	
+
+	
 	afficher la liste des joueur
-	-->
+	
 	<div class="menu">
-		<h1 style="padding-bottom: 3%;" id="joueurs">Liste des joueurs : </h1>
+		<h1 id="joueurs">Liste des joueurs : </h1>
 		<ul id="listeDesJoueur">
 			
 
 		</ul>
 	</div>
+	-->
 	<!--
 	afficher la parti selectionner
-	-->
-	<div class="menu" id="parti" style="visibility: hidden;">
+
+		<div class="menu" id="parti" style="visibility: hidden;">
 		<h1>Parti : </h1>
 		<h1 id="afficherParti"></h1>
 	</div>
-	<!--
+
 	afficher la couleur
-	-->
+
 	<div class="menu" id="couleur" style="visibility: hidden;">
 		<h1>Couleur : </h1>
 	</div>
+	-->
+	<div id="test"></div>
 
 	<div class="menu" id="menu">
 		<select id="listetemps" onchange="choixTemps(this.value)">

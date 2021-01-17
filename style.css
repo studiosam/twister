@@ -56,7 +56,8 @@ button {
 }
 #menu {
 	height: 15%;
-	position: sticky;
+	position: fixed;
+	width: 100%; 
 	bottom: 0px;
 	background-color: #8B8C9D;
 }
@@ -77,4 +78,11 @@ select {
 h1 {
 	font-size: 100px;
 	text-align: center;
+}
+#joueurs{
+	padding-bottom: 3%;
+}
+
+#test{
+	height: 85%;
 }

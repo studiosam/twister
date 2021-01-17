@@ -73,20 +73,11 @@ function choixTemps(choix){
 	console.log(temps);
 }
 
-function pageAjustement() {
-	document.getElementById("information").remove();
-	document.getElementById("listeDesJoueur").remove();
-	//console.log(element);
-	//element.style.visibility = "hidden";
-	var couleur = document.getElementById("couleur");
-	couleur.style.visibility = "visible";
-	var parti = document.getElementById("parti");
-	parti.style.visibility = "visible";
-}
 function nombreAleatoir (min, max) {
 	var alea = min + Math.floor(Math.random()*(max-min));
 	return alea;
 }
+
 function couleurAleatoir () {
 	var couleur = listeCouleur[nombreAleatoir(0,listeCouleur.length)];
 	var element = document.getElementById("couleur");
@@ -199,3 +190,81 @@ function startgame (argument) {
 		alert("Il te faut au moins deux joueurs !!");
 	}
 }
+
+function pageAjustement() {
+	elementCreation.remove();
+	elementList.remove();
+
+}
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+
+function creationAjoutJoueur () {
+	var div = document.createElement("div");
+	div.setAttribute("class", "menu");
+	div.setAttribute("id", "information");
+
+	var input = document.createElement("input");
+	input.setAttribute("type", "text");
+	input.setAttribute("id", "nomJoueur");
+	input.setAttribute("placeholder", "Rentrer le prenon des joueurs");
+	input.setAttribute("name", "fname");
+	input.setAttribute("onkeypress", "ajoutParRetours(event);");
+
+	var button = document.createElement("button");
+	button.setAttribute("id", "ajouter");
+	button.setAttribute("onclick", "ajoutjoueur();");
+	var textbutton = document.createTextNode("Ajouter");
+	button.appendChild(textbutton);
+
+	div.appendChild(input);
+	div.appendChild(button);
+
+	return div;
+}
+
+function creationListJoueur () {
+	var div = document.createElement("div");
+	div.setAttribute("class", "menu");
+
+	var header1 = document.createElement("h1");
+	header1.setAttribute("id", "joueurs");
+	var textHeader = document.createTextNode("Liste des joueurs :");
+	header1.appendChild(textHeader);
+
+	var ul = document.createElement("ul");
+	ul.setAttribute("id", "listeDesJoueur");
+
+	div.appendChild(header1);
+	div.appendChild(ul);
+
+
+	return div;
+}
+
+function creationPlageJeux() {
+	// body... 
+}
+var elementCreation;
+var elementList
+
+function pageJoueur () {
+	var page = document.getElementById('body');
+	elementCreation = creationAjoutJoueur();
+	 elementList = creationListJoueur();
+
+
+	page.appendChild(elementCreation);
+	page.appendChild(elementList);
+
+	//var valeurs = document.createTextNode(nom);
+
+
+}
+
+setTimeout(function(){
+	pageJoueur();
+}, 1000);
