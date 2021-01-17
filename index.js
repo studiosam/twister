@@ -158,7 +158,7 @@ function deroulementParti (tours) {
 
 function pausegame () {
 	buttonPauseToStart();
-	
+
 }
 
 var tours = 0;
