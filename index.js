@@ -192,8 +192,11 @@ function startgame (argument) {
 }
 
 function pageAjustement() {
+	var page = document.getElementById('body');
+
 	elementCreation.remove();
 	elementList.remove();
+	page.appendChild(plagejeux);
 
 }
 /////////////////////////////////////////////////////////////////////////////
@@ -229,6 +232,7 @@ function creationAjoutJoueur () {
 function creationListJoueur () {
 	var div = document.createElement("div");
 	div.setAttribute("class", "menu");
+	div.setAttribute("id", "divListeJoueur")
 
 	var header1 = document.createElement("h1");
 	header1.setAttribute("id", "joueurs");
@@ -246,19 +250,24 @@ function creationListJoueur () {
 }
 
 function creationPlageJeux() {
-	// body... 
+	var div = document.createElement("div");
+	div.setAttribute("id", "plagejeux");
+
+	return div;
 }
+
 var elementCreation;
 var elementList
-
+var plageJeux
 function pageJoueur () {
 	var page = document.getElementById('body');
 	elementCreation = creationAjoutJoueur();
-	 elementList = creationListJoueur();
-
+	elementList = creationListJoueur();
+	plagejeux = creationPlageJeux();
 
 	page.appendChild(elementCreation);
 	page.appendChild(elementList);
+
 
 	//var valeurs = document.createTextNode(nom);
 
