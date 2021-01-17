@@ -35,12 +35,21 @@ function ajouterTemps (valeur) {
 
 	const nouveauTemps = document.createElement("option")
 
-	var temps = document.createTextNode(valeur+" seconde");
+	var temps = document.createTextNode(tempsConversion(valeur));
 	nouveauTemps.setAttribute("value", valeur);
 	nouveauTemps.appendChild(temps);
 	
 	listeElem.parentNode.insertBefore(nouveauTemps, listeElem);
 	nouveauTemps.selected = true;
+}
+
+function tempsConversion (temps) {
+	var nouveaux = {}
+
+	nouveaux.minute=(temps-temps%60)/60;
+	nouveaux.seconde=temps%60;
+
+	return nouveaux.minute+" minute "+nouveaux.seconde+" seconde";
 }
 
 function choixTemps(choix){
@@ -57,43 +66,6 @@ function choixTemps(choix){
 	}else {
 		temps=choix;
 	}
-
-	/*switch (choix) {
-		case 0:
-			temps = 0;
-			break;
-		case 1:
-			temps = 5;
-			break;
-		case 2:
-			temps = 10;
-			break;
-		case 3:
-			temps = 15;
-			break;
-		case 4:
-			temps = 20;
-			break;
-		case 5:
-			temps = 30;
-			break;
-		case 6:
-			temps = 45;
-			break;
-		case 7:
-			temps = 60;
-			break;
-		case 8:
-			do{
-				temps = parseInt(prompt("Quels temps voulez-vous ? (en seconde)", "0"));
-			}while (isNaN(temps));
-			ajouterTemps(temps);
-			break;
-		default :
-			temps = 0;
-			break;
-	}
-	*/
 	console.log(temps);
 }
 
