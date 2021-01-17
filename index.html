@@ -16,7 +16,7 @@
 	-->
 	<div class="menu" id="information">
 
-			<input type="text" id="nomJoueur" placeholder="Rentrer le prenon des joueurs" name="fname">
+			<input type="text" id="nomJoueur" placeholder="Rentrer le prenon des joueurs" name="fname" onkeypress="ajoutParRetours(event)">
 			<button id="ajouter" onclick="ajoutjoueur()" >Ajouter</button>
 
 	</div>
@@ -46,7 +46,7 @@
 
 	<div class="menu" id="menu">
 		<select id="listetemps" onchange="choixTemps(this.value)">
-			<option value="0">Mode manuelle</option>
+			<option value="manuelle">Mode manuelle</option>
 			<option value="5">5 seconde</option>
 			<option value="10">10 seconde</option>
 			<option value="15">15 seconde</option>
@@ -56,7 +56,7 @@
 			<option value="60">1 minute</option>
 			<option value="custom" id="custom">Autre temps</option>
 		</select>
-		<button id="start" value="start" onclick="startgame()">Start</button>
+		<button id="start" value="start" onclick="startgame(this.value)">Start</button>
 	</div>
 
 

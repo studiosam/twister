@@ -2,15 +2,19 @@ var listeJoueur = [];
 var listeMembre = ["Mains", "Pied"];
 var listeCouleur = ["Vert","Jaune" ,"Bleu", "Rouge"]
 
+function ajoutParRetours (touche) {
+	if (event.key === "Enter") {
+		ajoutjoueur();
+	}
+}
+	
 function ajoutjoueur(){
 	var lejoueur = document.getElementById("nomJoueur").value;
 	unique(lejoueur);
-
-	console.log(listeJoueur);
+	document.getElementById('nomJoueur').value = '';
 }
 
 function unique(joueur){
-	console.log(listeJoueur.indexOf(joueur));
 	if (listeJoueur.indexOf(joueur) != -1) {
 		alert("Le joueur : "+joueur+" a deja ete ajouter")
 	}else {
@@ -129,18 +133,26 @@ function gettime () {
 	var temps = 0;
 	var element = document.getElementById("listetemps");
 	temps = element.value*1000;
-	if (element.value = custom) {
+	if (element.value == "custom" || element.value == "manuelle") {
 		temps=0;
 	}
 	return temps;
 }
 
-function buttonStartToStop () {
+function buttonStartToPause () {
 	var playPause = document.getElementById("start");
 	playPause.style.backgroundColor = '#d84949';
 	playPause.innerHTML = "Pause";
 	playPause.value = "pause";
 }
+
+function buttonPauseToStart () {
+	var playPause = document.getElementById("start");
+	playPause.style.backgroundColor = '#4CAF50';
+	playPause.innerHTML = "Start";
+	playPause.value = "start";
+}
+
 function deroulementParti (tours) {
 	couleurAleatoir();
 	partiAleatoir();
@@ -148,8 +160,15 @@ function deroulementParti (tours) {
 }
 
 
+
+function pausegame () {
+	buttonPauseToStart()
+}
+
 var tours = 0;
-function startgame() {
+var intervalJouer
+
+function startgame (argument) {
 	if (listeJoueur.length >= 2) {
 		if (document.getElementById("information")) {
 			pageAjustement();
@@ -157,14 +176,25 @@ function startgame() {
 		var interval = gettime();
 		tours++;
 
-		deroulementParti(tours);
-		if (interval != 0) {
-			buttonStartToStop();
-			setInterval(function(){
-				tours++;
+
+		if(argument=="start"){
+			if (interval != 0) {
+				
+				buttonStartToPause();
+				intervalJouer = setInterval(function(){
+					tours++;
+					deroulementParti(tours);
+				}, interval);
+
+			}else {
 				deroulementParti(tours);
-			}, interval);
-		}	
+			}
+		}else if (argument=="pause") {
+			pausegame();
+			clearInterval(intervalJouer);
+				
+		}
+
 	}else {
 		alert("Il te faut au moins deux joueurs !!");
 	}
