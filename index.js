@@ -1,4 +1,4 @@
-var listeJoueur = ["louis", "patrice","sds"];
+var listeJoueur = [];
 var listeMembre = ["Mains", "Pied"];
 var listeCouleur = ["Vert","Jaune" ,"Bleu", "Rouge"]
 
