@@ -1,4 +1,4 @@
-var listeJoueur = ["louis", "patrice"];
+var listeJoueur = ["louis", "patrice","sds"];
 var listeMembre = ["Mains", "Pied"];
 var listeCouleur = ["Vert","Jaune" ,"Bleu", "Rouge"]
 
@@ -128,8 +128,10 @@ function gettime () {
 	var temps = 0;
 	var element = document.getElementById("listetemps");
 	temps = element.value*1000;
-	if (element.value == "custom" || element.value == "manuelle") {
+	if (element.value == "custom") {
 		temps=0;
+	}else if (element.value == "manuelle") {
+		temps="manuelle";
 	}
 	return temps;
 }
@@ -151,18 +153,25 @@ function buttonPauseToStart () {
 function deroulementParti (tours) {
 	couleurAleatoir();
 	partiAleatoir();
-	afficherLeJoueur(tours); 
+	afficherLeJoueur(tours);
+	tours++;
 }
 
 
 
 function pausegame () {
+	var page = document.getElementById('body');
+
 	buttonPauseToStart();
+
+	plageJeux.remove();
+	page.appendChild(elementCreation);
+	page.appendChild(elementList);
 
 }
 
 var tours = 0;
-var intervalJouer
+var intervalJouer;
 
 function startgame (argument) {
 	if (listeJoueur.length >= 2) {
@@ -170,20 +179,17 @@ function startgame (argument) {
 			pageAjustement();
 		}
 		var interval = gettime();
-		tours++;
+		
 
 
 		if(argument=="start"){
-			if (interval != 0) {
-				
-				buttonStartToPause();
+			buttonStartToPause();
+			if (interval == 0 || interval=="manuelle") {
+				deroulementParti(tours);
+			}else {
 				intervalJouer = setInterval(function(){
-					tours++;
 					deroulementParti(tours);
 				}, interval);
-
-			}else {
-				deroulementParti(tours);
 			}
 		}else if (argument=="pause") {
 			pausegame();
@@ -250,13 +256,47 @@ function creationListJoueur () {
 	div.appendChild(header1);
 	div.appendChild(ul);
 
+	setTimeout(function(){
+		creationUiList();
+	}, 1600);
+	
 
 	return div;
+}
+
+function creationUiList () {
+
+	var lis = document.getElementById("listeDesJoueur");
+	for (var i = listeJoueur.length - 1; i >= 0; i--) {
+		var element = document.createElement("li");
+		const header = document.createElement("h1");
+		var valeurs = document.createTextNode(listeJoueur[i]);
+		header.setAttribute("class", "nomDeJoueur");
+		header.appendChild(valeurs);
+		
+		console.log(listeJoueur[i]);
+
+
+		element.appendChild(header);
+		console.log('')
+		lis.appendChild(element);
+
+
+	}
 }
 
 function creationPlageJeux() {
 	var div = document.createElement("div");
 	div.setAttribute("id", "plagejeux");
+	div.setAttribute("onclick", "deroulementParti(tours);")
+
+	var header1 = document.createElement("h1");
+	header1.setAttribute("id", "resultat");
+	
+	div.appendChild(header1);
+	var images = document.createElement("img");
+	images.setAttribute("src", "./main.png");
+	div.appendChild(images);
 
 	return div;
 }
