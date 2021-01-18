@@ -6,6 +6,9 @@ var elementCreation= creationAjoutJoueur();
 var elementList = creationListJoueur();
 var plageJeux = creationPlageJeux();
 
+var images = document.createElement("img");
+
+
 function ajoutParRetours (touche) {
 	if (event.key === "Enter") {
 		ajoutjoueur();
@@ -102,15 +105,17 @@ function couleurAleatoir () {
 }
 function partiAleatoir () {
 	var parti = listeMembre[nombreAleatoir(0,listeMembre.length)];
-	var element = document.getElementById("afficherParti");
+	var element = document.getElementById("plagejeux");
+
 	switch (parti) {
 		case "Mains":
-			element.innerText  = "Mains";
+			images.setAttribute("src", "./main.png");
 			break;
 		case "Pied":
-			element.innerText = "Pied";
+			images.setAttribute("src", "./pied.png");
 			break;
 	}
+	element.appendChild(images);
 	
 }
 function toursJoueur (tours) {
@@ -120,7 +125,7 @@ function toursJoueur (tours) {
 
 function afficherLeJoueur (tours) {
 	var nom = toursJoueur(tours);
-	var element = document.getElementById("joueurs");
+	var element = document.getElementById("plagejeux");
 	element.innerHTML = nom;
 }
 
@@ -294,9 +299,7 @@ function creationPlageJeux() {
 	header1.setAttribute("id", "resultat");
 	
 	div.appendChild(header1);
-	var images = document.createElement("img");
-	images.setAttribute("src", "./main.png");
-	div.appendChild(images);
+
 
 	return div;
 }
