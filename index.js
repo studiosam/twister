@@ -125,7 +125,7 @@ function toursJoueur (tours) {
 
 function afficherLeJoueur (tours) {
 	var nom = toursJoueur(tours);
-	var element = document.getElementById("plagejeux");
+	var element = document.getElementById("resultat");
 	element.innerHTML = nom;
 }
 
@@ -283,7 +283,6 @@ function creationUiList () {
 
 
 		element.appendChild(header);
-		console.log('')
 		lis.appendChild(element);
 
 
@@ -295,11 +294,12 @@ function creationPlageJeux() {
 	div.setAttribute("id", "plagejeux");
 	div.setAttribute("onclick", "deroulementParti(tours);")
 
-	var header1 = document.createElement("h1");
-	header1.setAttribute("id", "resultat");
+	var resultatHeader = document.createElement("h1");
+	resultatHeader.setAttribute("id", "resultat");
 	
-	div.appendChild(header1);
 
+	div.appendChild(resultatHeader);
+	console.log(div);
 
 	return div;
 }

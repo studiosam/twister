@@ -88,5 +88,8 @@ h1 {
 	height: 85%;
 }
 #divListeJoueur{
-	height: 72%
+	height: 72%;
+}
+#resultat {
+	height: 20%;
 }
