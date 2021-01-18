@@ -156,7 +156,7 @@ function buttonPauseToStart () {
 	playPause.value = "start";
 }
 
-function deroulementParti (tours) {
+function deroulementParti () {
 	couleurAleatoir();
 	partiAleatoir();
 	afficherLeJoueur(tours);
@@ -191,10 +191,10 @@ function startgame (argument) {
 		if(argument=="start"){
 			buttonStartToPause();
 			if (interval == 0 || interval=="manuelle") {
-				deroulementParti(tours);
+				deroulementParti();
 			}else {
 				intervalJouer = setInterval(function(){
-					deroulementParti(tours);
+					deroulementParti();
 				}, interval);
 			}
 		}else if (argument=="pause") {
@@ -293,7 +293,7 @@ function creationUiList () {
 function creationPlageJeux() {
 	var div = document.createElement("div");
 	div.setAttribute("id", "plagejeux");
-	div.setAttribute("onclick", "deroulementParti(tours);")
+	div.setAttribute("onclick", "deroulementParti();")
 
 	var resultatHeader = document.createElement("h1");
 	resultatHeader.setAttribute("id", "resultat");
