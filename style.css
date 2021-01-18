@@ -91,5 +91,13 @@ h1 {
 	height: 72%;
 }
 #resultat {
-	height: 20%;
+	height: 8%;
+	padding: 15%;
+}
+#image {
+    margin: auto;
+    display: block;
+    margin-top: 11.5%;
+    height: 50%;
+
 }

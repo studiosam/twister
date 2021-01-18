@@ -7,6 +7,7 @@ var elementList = creationListJoueur();
 var plageJeux = creationPlageJeux();
 
 var images = document.createElement("img");
+images.setAttribute("id", "image");
 
 
 function ajoutParRetours (touche) {
