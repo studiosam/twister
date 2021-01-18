@@ -1,4 +1,4 @@
-var listeJoueur = [];
+var listeJoueur = ["pat","sq"];
 var listeMembre = ["Mains", "Pied"];
 var listeCouleur = ["Vert","Jaune" ,"Bleu", "Rouge"]
 
@@ -273,6 +273,8 @@ function creationListJoueur () {
 function creationUiList () {
 
 	var lis = document.getElementById("listeDesJoueur");
+
+
 	for (var i = listeJoueur.length - 1; i >= 0; i--) {
 		var element = document.createElement("li");
 		const header = document.createElement("h1");
@@ -280,8 +282,9 @@ function creationUiList () {
 		header.setAttribute("class", "nomDeJoueur");
 		header.appendChild(valeurs);
 		
-		console.log(listeJoueur[i]);
-
+		var fermer = document.createElement("button");
+		fermer.setAttribute("id", "fermer");
+		element.appendChild(fermer);
 
 		element.appendChild(header);
 		lis.appendChild(element);
