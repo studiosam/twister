@@ -60,7 +60,6 @@ function tuJouePlus (joueur) {
 			listeJoueur.splice(i, 1); 
 		}
 	}
-	console.log(listeJoueur);
 }
 
 
@@ -100,7 +99,6 @@ function choixTemps(choix){
 	}else {
 		temps=choix;
 	}
-	console.log(temps);
 }
 
 function nombreAleatoir (min, max) {
@@ -328,7 +326,6 @@ function creationPlageJeux() {
 	
 
 	div.appendChild(resultatHeader);
-	console.log(div);
 
 	return div;
 }
