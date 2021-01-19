@@ -46,7 +46,6 @@ button {
 .nomDeJoueur {
 	font-size: 90px;
 	height: 20%;
-	
 	border-bottom-style: hidden; 
 	padding: 3% 0% 3% 0%;
 }
@@ -55,8 +54,15 @@ button {
 	padding: 0px;
 
 }
+ul{
+	overflow:hidden;
+	overflow-y:scroll;
+	max-height: 91%;
+
+}
 li{
 	border-top-style: solid;
+
 }
 
 #menu {
@@ -111,8 +117,9 @@ h1 {
 	background-size: 100%;
 	height: 65px;  
     width: 65px;
-    right: 2%;
+    left: 90.6%;
     margin-top: 2%;
-    position: absolute;
+    position: relative;
+
 
 }
