@@ -34,14 +34,36 @@ function ajouterListe(nom){
 	const listeElem = document.getElementById("listeDesJoueur")
 
 	const element = document.createElement("li");
+	element.setAttribute("id", nom);
 	const nouveaujoueur = document.createElement("h1");
 	var valeurs = document.createTextNode(nom);
 	nouveaujoueur.setAttribute("class", "nomDeJoueur");
 	nouveaujoueur.appendChild(valeurs);
+
+	var fermer = document.createElement("button");
+	fermer.setAttribute("id", "fermer");
+	fermer.setAttribute("value", nom);
+	fermer.setAttribute("onclick", "tuJouePlus(this.value);");
+
+	element.appendChild(fermer);
 	element.appendChild(nouveaujoueur);
 	listeElem.appendChild(element);
 
 }
+
+function tuJouePlus (joueur) {
+	var suprimer = document.getElementById(joueur);
+	suprimer.remove();
+
+	for (var i = listeJoueur.length - 1; i >= 0; i--) {
+		if (listeJoueur[i]==joueur){
+			listeJoueur.splice(i, 1); 
+		}
+	}
+	console.log(listeJoueur);
+}
+
+
 function ajouterTemps (valeur) {
 	const listeElem = document.getElementById("custom");
 
@@ -277,6 +299,7 @@ function creationUiList () {
 
 	for (var i = listeJoueur.length - 1; i >= 0; i--) {
 		var element = document.createElement("li");
+		element.setAttribute("id", listeJoueur[i]);
 		const header = document.createElement("h1");
 		var valeurs = document.createTextNode(listeJoueur[i]);
 		header.setAttribute("class", "nomDeJoueur");
@@ -284,6 +307,8 @@ function creationUiList () {
 		
 		var fermer = document.createElement("button");
 		fermer.setAttribute("id", "fermer");
+		fermer.setAttribute("value", listeJoueur[i]);
+		fermer.setAttribute("onclick", "tuJouePlus(this.value);")
 		element.appendChild(fermer);
 
 		element.appendChild(header);
