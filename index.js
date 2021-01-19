@@ -19,13 +19,14 @@ function ajoutParRetours (touche) {
 function ajoutjoueur(){
 	var lejoueur = document.getElementById("nomJoueur").value;
 	unique(lejoueur);
-	document.getElementById('nomJoueur').value = '';
 }
 
 function unique(joueur){
 	if (listeJoueur.indexOf(joueur) != -1) {
 		alert("Le joueur : "+joueur+" a deja ete ajouter")
-	}else {
+	}else if (joueur == '') {
+		alert("Entrer un nom")
+	}else{
 		listeJoueur.push(joueur);
 		ajouterListe(joueur);
 	}
